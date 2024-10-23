@@ -84,7 +84,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.date.utc=0
 
 # Copy modules for depmod
-PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*.ko,$(DEVICE_PATH)/recovery/root/vendor_dlkm/lib/modules,$(TARGET_COPY_OUT_RECOVERY)/root/vendor_dlkm/lib/module)
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*.ko,$(DEVICE_PATH)/recovery/root/vendor_dlkm/lib/modules,$(TARGET_COPY_OUT_RECOVERY)/root/vendor_dlkm/lib/modules)
 
 # OEM otacert
 PRODUCT_EXTRA_RECOVERY_KEYS += \
