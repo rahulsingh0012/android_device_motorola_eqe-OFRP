@@ -71,16 +71,21 @@ BOARD_KERNEL_TAGS_OFFSET   := 0x00000100
 BOARD_KERNEL_OFFSET        := 0x00008000
 BOARD_RAMDISK_OFFSET       := 0x01000000
 BOARD_DTB_OFFSET           := 0x01f00000
-BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+BOARD_INCLUDE_DTB_IN_VENDOR_BOOTIMG := true
 BOARD_KERNEL_CMDLINE := video=vfb:640x400,bpp=32,memsize=3072000 nosoftlockup pstore.compress=none page_pinner=on printk.devkmsg=on mem.enable_mglru=1 bootconfig
 BOARD_BOOTCONFIG += \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \
     androidboot.usbcontroller=a600000.dwc3
+
+# For the love of all that is holy, please do not include this in your ROM unless you really want TWRP to not work correctly!
+BOARD_KERNEL_CMDLINE += androidboot.fastboot=1
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_RAMDISK_USE_LZ4 := true
-BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
+BOARD_EXCLUDE_KERNEL_FROM_BOOTIMAGE := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 
 # Copy DTB
